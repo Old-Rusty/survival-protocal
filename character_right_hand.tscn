@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccj1xsocvyqjg"]
+
+[ext_resource type="Texture2D" uid="uid://d13rd4ui6ida" path="res://assets/base_character_sprite_sheet.png" id="1_3dhqn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3dhqn"]
+size = Vector2(7, 5)
+
+[node name="RightHand" type="Area2D"]
+texture_filter = 1
+
+[node name="RightHand" type="Sprite2D" parent="."]
+texture = ExtResource("1_3dhqn")
+hframes = 6
+frame = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_3dhqn")
+debug_color = Color(1, 0, 0, 0.19607843)

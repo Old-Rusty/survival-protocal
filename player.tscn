@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://caoajydmffegv"]
+
+[ext_resource type="PackedScene" uid="uid://dp63gviwqwu3n" path="res://character_left_foot.tscn" id="1_onrkg"]
+[ext_resource type="PackedScene" uid="uid://bd77l2b36mmnt" path="res://character_right_foot.tscn" id="2_sweqy"]
+[ext_resource type="PackedScene" uid="uid://bptbnd51ry6di" path="res://character_left_hand.tscn" id="3_2hs0m"]
+[ext_resource type="PackedScene" uid="uid://x4dqsfkcdsgb" path="res://character_torso.tscn" id="3_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://ccj1xsocvyqjg" path="res://character_right_hand.tscn" id="4_1jxqw"]
+[ext_resource type="PackedScene" uid="uid://hsqwqm2fgo23" path="res://character_head.tscn" id="5_2hs0m"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_onrkg"]
+radius = 5.0
+height = 28.0
+
+[node name="Player" type="CharacterBody2D"]
+texture_filter = 1
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+top_level = true
+shape = SubResource("CapsuleShape2D_onrkg")
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="LeftFoot" parent="Body" instance=ExtResource("1_onrkg")]
+position = Vector2(0, -6)
+
+[node name="RightFoot" parent="Body" instance=ExtResource("2_sweqy")]
+position = Vector2(0, 6)
+
+[node name="LeftHand" parent="Body" instance=ExtResource("3_2hs0m")]
+position = Vector2(8, -18)
+
+[node name="RightHand" parent="Body" instance=ExtResource("4_1jxqw")]
+position = Vector2(8, 18)
+
+[node name="Torso" parent="Body" instance=ExtResource("3_i3pqv")]
+
+[node name="Head" parent="Body" instance=ExtResource("5_2hs0m")]

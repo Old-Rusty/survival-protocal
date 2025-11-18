@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://hsqwqm2fgo23"]
+
+[ext_resource type="Texture2D" uid="uid://d13rd4ui6ida" path="res://assets/base_character_sprite_sheet.png" id="1_ihljs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ihljs"]
+radius = 8.0
+
+[node name="Head" type="Area2D"]
+texture_filter = 1
+
+[node name="Head" type="Sprite2D" parent="."]
+texture = ExtResource("1_ihljs")
+hframes = 6
+frame = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ihljs")
+debug_color = Color(1, 0, 0, 0.19607843)

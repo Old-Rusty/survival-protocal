@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://kuckcj4jsfwi"]
+
+[ext_resource type="Texture2D" uid="uid://d13rd4ui6ida" path="res://assets/base_character_sprite_sheet.png" id="1_yv06l"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ms083"]
+height = 36.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_734sh"]
+diffuse_texture = ExtResource("1_yv06l")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jqjso"]
+radius = 6.0
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_yv06l"]
+
+[node name="test" type="CharacterBody2D"]
+texture_filter = 1
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CapsuleShape2D_ms083")
+debug_color = Color(0.99607843, 0, 0, 0.41960785)
+
+[node name="HealthComponent" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("CanvasTexture_734sh")
+hframes = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_jqjso")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendTree_yv06l")
+anim_player = NodePath("../AnimationPlayer")
